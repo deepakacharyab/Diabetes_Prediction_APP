@@ -1,0 +1,83 @@
+<!-- This is GUI for Diabetes Detection Application Using Machine Learning Classifer -->
+
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+
+  <style>
+    /* CSS code for button */
+    body {
+      background-image: url('static/images/pexels-iconcom-719597.jpg'); 
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    /* CSS code for button */
+    .button_css {
+    color: #494949 !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #ffffff;
+    padding: 20px;
+    border: 4px solid #494949 !important;
+    display: inline-block;
+    transition: all 0.4s ease 0s;
+    }
+    
+    .button_css:hover {
+    color: #ffffff !important;
+    background: #f6b93b;
+    border-color: #f6b93b !important;
+    transition: all 0.4s ease 0s;
+    }
+  </style>
+
+</head>
+
+<body>
+
+
+ 
+ <div class="login">
+
+    <!-- Get input for predict the Diabetes -->       
+    <center>
+    <form action="{{ url_for('predict')}}"method="post">
+        <h1>Enter the value of Diabetes features >>></h1>  
+        
+    	<input type="text" name= 'Pregnancies' placeholder= 'Pregnancies' required="required" />
+        <input type="text" name='Glucose'  placeholder='Glucose' required="required" />
+		<input type="text" name='BloodPressure' placeholder='BloodPressure' required="required" />
+		<input type="text" name='SkinThickness	' placeholder='SkinThickness	' required="required" />
+        <input type="text" name='Insulin' placeholder='Insulin' required="required" />
+		<br>
+    	<input type="text" name='BMI' placeholder='BMI' required="required" />
+        <input type="text" name='DiabetesPedigreeFunction' placeholder='DiabetesPedigreeFunction' required="required" />
+		<input type="text" name='Age' placeholder='Age' required="required" />
+    	
+        <br>
+        <br>
+        
+        <!-- Show button -->
+        <div class="button_cont" align="center"><a class="button_css" target="_blank" rel="nofollow noopener">
+            <button type="submit" class="btn btn-primary btn-block btn-large"><strong>Predict Diabetes</strong></button></a>
+        </div>
+        
+        
+    </form>
+    </center>
+   
+   <!-- Show predicted output using ML model --> 
+   <div>
+       <center>
+   <h1>{{ prediction_text }}</h1>
+       </center>
+   </div>
+
+ </div>
+
+</body>
+</html>
